@@ -14,12 +14,12 @@
 - [Open the `Terminal`](#open-the-terminal)
 - [(Windows only) Set the default shell](#windows-only-set-the-default-shell)
 - [Configure `Git`](#configure-git)
-- [Open the `software-engineering-toolkit` directory in `VS Code`](#open-the-software-engineering-toolkit-directory-in-vs-code)
+- [Open `VS Code` in the `software-engineering-toolkit` directory](#open-vs-code-in-the-software-engineering-toolkit-directory)
 - [Copy your fork URL](#copy-your-fork-url)
 - [Clone the fork on your computer](#clone-the-fork-on-your-computer)
   - [Clone the fork using the `Terminal`](#clone-the-fork-using-the-terminal)
   - [Clone the fork using the `Command Palette`](#clone-the-fork-using-the-command-palette)
-- [Open the cloned repo in `VS Code`](#open-the-cloned-repo-in-vs-code)
+- [Open `VS Code` in the cloned repo directory](#open-vs-code-in-the-cloned-repo-directory)
 - [Set up `VS Code` extensions](#set-up-vs-code-extensions)
 - [Reload `VS Code`](#reload-vs-code)
 - [Explore `VS Code` layout](#explore-vs-code-layout)
@@ -169,7 +169,7 @@ Open `Git Bash` - a terminal for running commands.
 
      Example: `git config --global user.name 'johndoe@gmail.com'`
 
-## Open the `software-engineering-toolkit` directory in `VS Code`
+## Open `VS Code` in the `software-engineering-toolkit` directory
 
 1. On your computer, create somewhere a directory `software-engineering-toolkit` (e.g., on your `Desktop`).
 2. Open `VS Code`.
@@ -227,7 +227,7 @@ Clone the fork using any of the following methods:
 8. You should choose `software-engineering-toolkit` that you created before.
 9. Confirm the choice.
 
-## Open the cloned repo in `VS Code`
+## Open `VS Code` in the cloned repo directory
 
 1. [Run using the `Command Palette`](../lab/appendix/vs-code.md#run-a-command-using-the-command-palette):
    `File: Open Folder...`.
@@ -237,7 +237,7 @@ Clone the fork using any of the following methods:
 5. [Open `Folders`](./appendix/vs-code.md#open-folders).
 6. Look at `FOLDERS`.
 7. You should see `LAB-01-MARKET-PRODUCT-AND-GIT` there.
-8. You can close the `VS Code` where you [opened the `software-engineering-toolkit` directory](#open-the-software-engineering-toolkit-directory-in-vs-code).
+8. You can close the `VS Code` that you [opened in the `software-engineering-toolkit` directory](#open-vs-code-in-the-software-engineering-toolkit-directory).
 
 ## Set up `VS Code` extensions
 
