@@ -11,14 +11,18 @@
 - [Host](#host)
   - [Hostname](#hostname)
     - [`localhost`](#localhost)
+    - [`127.0.0.1`](#127001)
+    - [`0.0.0.0`](#0000)
   - [Remote host](#remote-host)
 - [Port](#port)
   - [Port number](#port-number)
   - [System port](#system-port)
   - [User port](#user-port)
   - [Listen on a port](#listen-on-a-port)
-- [Wi-Fi](#wi-fi)
-  - [Wi-Fi network](#wi-fi-network)
+- [`Wi-Fi`](#wi-fi)
+  - [`Wi-Fi` network](#wi-fi-network)
+- [Reverse proxy](#reverse-proxy)
+  - [Forward request](#forward-request)
 
 ## What is a network
 
@@ -87,6 +91,18 @@ It resolves to the loopback [IP address](#ip-address) `127.0.0.1`.
 
 Connections to `localhost` never leave the host — they are handled entirely within the [operating system](./operating-system.md).
 
+#### `127.0.0.1`
+
+`127.0.0.1` is the loopback [IP address](#ip-address). [`localhost`](#localhost) resolves to this address.
+
+#### `0.0.0.0`
+
+`0.0.0.0` is a special [IP address](#ip-address) that means "all network interfaces on this [host](#host)."
+
+When a [process](./operating-system.md#process) that [listens on a port](#listen-on-a-port) is bound to `0.0.0.0`, it accepts connections from any network interface — including [`localhost`](#localhost) and external networks. In contrast, binding to `127.0.0.1` restricts connections to the local host only.
+
+This is commonly used to make a service accessible from outside the [machine](#machine) (e.g., from your laptop to a [virtual machine](./vm.md#what-is-a-vm)).
+
 ### Remote host
 
 A remote [host](#host) is a host that is not the [local host](#localhost) — it is accessed over a [network](#what-is-a-network).
@@ -116,22 +132,34 @@ A **user port** (or **registered port**) is a [network port](#port) designated f
 
 ### Listen on a port
 
-When a [process](./operating-system.md#process) "listens on a port", it means the process has bound itself to a specific network port number and is waiting for incoming network connections on that port.
+When a [process](./operating-system.md#process) "listens on a port", it means the [process](./operating-system.md#process) has bound itself to a specific [network port number](#port-number) and is waiting for incoming network connections on that [port](#port).
 
-The [operating system](./operating-system.md) allocates the port to that process, and any incoming network traffic directed to that port will be handled by the listening process.
+The [operating system](./operating-system.md#what-is-an-operating-system) allocates the port to that process, and any incoming network traffic directed to that port will be handled by the listening process.
 
-This is how [services](./operating-system.md#service) like [web servers](./web-development.md), [SSH daemons](./ssh.md#ssh-daemon), or [databases](./database.md) accept connections from clients. A port can only be listened to by one process at a time.
+This is how [services](./operating-system.md#service) like [web servers](./web-development.md), [`SSH` daemons](./ssh.md#ssh-daemon), or [databases](./database.md#what-is-a-database) accept connections from [clients](./web-development.md#web-client).
 
-## Wi-Fi
+A port can only be listened on by one process at a time.
+
+## `Wi-Fi`
 
 `Wi-Fi` is a wireless technology that allows [machines](#machine) to connect to a [network](#what-is-a-network) without physical cables.
 
 It uses radio waves to transmit data between devices and a wireless access point (a router).
 
-### Wi-Fi network
+### `Wi-Fi` network
 
-A `Wi-Fi` network is a [network](#what-is-a-network) that [machines](#machine) connect to using [Wi-Fi](#wi-fi).
+A `Wi-Fi` network is a [network](#what-is-a-network) that [machines](#machine) connect to using [`Wi-Fi`](#wi-fi).
 
 Each `Wi-Fi` network has a name (called `SSID`) that identifies it to nearby devices.
 
 Example: `UniversityStudent`, `Home_Network`.
+
+## Reverse proxy
+
+A reverse proxy is a server that sits in front of a backend [service](./web-development.md#service) and forwards incoming client requests to it.
+
+<!-- TODO update -->
+
+### Forward request
+
+<!-- TODO -->
