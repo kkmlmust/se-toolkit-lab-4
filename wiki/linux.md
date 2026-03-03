@@ -68,13 +68,11 @@ Docs:
 
 ## Groups
 
-A group is a collection of [users](#users) that share the same access permissions to [files](./file-system.md#file) and [directories](./file-system.md#directory).
-
-Groups allow an administrator to manage permissions for multiple users at once: adding a user to a group grants them all the group's permissions.
-
-Each user has a primary group and can belong to additional supplementary groups.
+See [Group](./operating-system.md#group).
 
 ## Users
+
+See [User](./operating-system.md#user).
 
 Servers and VMs usually run multiple users.
 

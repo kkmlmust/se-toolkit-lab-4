@@ -14,6 +14,8 @@
   - [Background process](#background-process)
   - [PID](#pid)
 - [Service](#service)
+- [User](#user)
+- [Group](#group)
 
 ## What is an operating system
 
@@ -99,3 +101,17 @@ Common examples include [web servers](./web-development.md), [database servers](
 Services often [listen on specific ports](./computer-networks.md#listen-on-a-port) to handle incoming requests.
 
 They form the backbone of system functionality and network communications.
+
+## User
+
+A user is an account on the operating system that can run [processes](#process) and own [files](./file-system.md#file).
+
+Each user has a primary account name and a set of permissions that determine what resources they can access or modify.
+
+## Group
+
+A group is a collection of [users](#user) that share the same access permissions to [files](./file-system.md#file) and [directories](./file-system.md#directory).
+
+Groups allow an administrator to manage permissions for multiple users at once: adding a user to a group grants them all the group's permissions.
+
+Each user has a primary group and can belong to additional supplementary groups.
