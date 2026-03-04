@@ -12,7 +12,7 @@
 
 ## What is `Caddy`
 
-`Caddy` is an open-source [web server](./web-development.md#web-server) and [reverse proxy](./computer-networks.md#reverse-proxy).
+`Caddy` is an open-source [web server](./http.md#web-server) and [reverse proxy](./computer-networks.md#reverse-proxy).
 
 `Caddy` is configured via a [`Caddyfile`](#caddyfile).
 
@@ -39,20 +39,20 @@ In this project, the [`Caddyfile`](#caddyfile) is at [`caddy/Caddyfile`](../cadd
 
 This configuration:
 
-- Reads the value of [`CADDY_CONTAINER_PORT`](./dotenv-docker-secret.md#caddy_container_port).
+- Reads the value of [`CADDY_CONTAINER_PORT`](./dotenv-docker-secret.md#caddy_container_port) in [`.env.docker.secret`](./dotenv-docker-secret.md#what-is-envdockersecret).
 - Makes `Caddy` [listen on the port](./computer-networks.md#listen-on-a-port) listen on this port inside a [`Docker` container](./docker.md#container).
 - [Serves frontend files](#caddy-serves-frontend-files)
-- [Forward requests to backend](#caddy-forwards-requests-to-backend)
+- [Forwards requests to backend](#caddy-forwards-requests-to-backend)
 
 ### `Caddy` serves frontend files
 
-`Caddy` serves static [front-end](./web-development.md#frontend) files from `/srv` for all other paths. The `try_files` directive falls back to `index.html` for client-side routing.
+`Caddy` serves static front-end files from `/srv` for all other paths. The `try_files` directive falls back to `index.html` for client-side routing.
 
 ### `Caddy` forwards requests to backend
 
 <!-- TODO Rename API endpoints -> API paths? -->
 
-`Caddy` routes [API endpoints](./web-development.md#endpoint) (`/items*`, `/learners*`, `/interactions*`, `/docs*`, `/openapi.json`) to the [`app` service](./docker-compose-yml.md#app-service).
+`Caddy` routes [API endpoints](./api.md#endpoint) (`/items*`, `/learners*`, `/interactions*`, `/docs*`, `/openapi.json`) to the [`app` service](./docker-compose-yml.md#app-service).
 
 ### `<caddy-port>`
 

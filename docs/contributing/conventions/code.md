@@ -113,7 +113,7 @@ Mark unfinished work with `TODO` so it can be found by search:
   and return type).
 - Use `X | None` union syntax, not `Optional[X]`.
 - Pyright runs in **strict** mode — zero errors allowed.
-- ty runs in parallel as a second opinion.
+- ty runs as a second opinion.
 
 ### TypeScript types
 
@@ -186,6 +186,5 @@ poe dev            # check + run server
 > Secrets never enter version control.
 
 - Store secrets in `.env` files. These files are git-ignored.
-- Reference `.env.example` / `.env.docker.example` for the expected
-  variable names.
+- Reference `.env.docker.example` for the expected variable names.
 - Never hard-code API tokens or database passwords in source code.

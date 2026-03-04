@@ -9,6 +9,9 @@
   - [`Markdown`](#markdown)
     - [`Markdown` docs](#markdown-docs)
     - [`Markdown` in this project](#markdown-in-this-project)
+    - [`Markdown` code block](#markdown-code-block)
+  - [`HTML`](#html)
+  - [`CSS`](#css)
   - [`JSON`](#json)
     - [`JSON` docs](#json-docs)
     - [`JSON` example](#json-example)
@@ -29,6 +32,8 @@
     - [`Python` docs](#python-docs)
     - [`Python` example](#python-example)
     - [`Python` in this project](#python-in-this-project)
+  - [`CSV`](#csv)
+  - [`Protobuf`](#protobuf)
 
 ## What is a file format?
 
@@ -48,6 +53,10 @@ The [file extension](./file-system.md#extension) (e.g., [`.json`](#json), [`.tom
 
 ### `Markdown`
 
+<!-- TODO create markdown.md -->
+<!-- add section about syntax and code blocks -->
+<!-- reference that section from task-1.md -->
+
 `Markdown` is a [markup language](https://en.wikipedia.org/wiki/Markup_language).
 
 `Markdown` gets translated into [`HTML`](https://en.wikipedia.org/wiki/HTML).
@@ -63,6 +72,16 @@ You see the rendered `HTML` when you [open the `Markdown` preview](./vs-code.md#
 - [`./file-formats.md`](./file-formats.md) — this file.
 - [`README.md`](../README.md) — project overview.
 - [`.github/pull_request_template.md`](../.github/pull_request_template.md) — [`GitHub` pull request](./github.md#pull-request) template.
+
+#### `Markdown` code block
+
+### `HTML`
+
+`HTML` (`HyperText Markup Language`) is the standard language for structuring content on the web. An `HTML` file defines the structure and content of a web page using tags.
+
+### `CSS`
+
+`CSS` (`Cascading Style Sheets`) is a language for styling `HTML` content — controlling layout, colors, fonts, and other visual properties.
 
 ### `JSON`
 
@@ -176,3 +195,15 @@ def greet(name: str) -> str:
 #### `Python` in this project
 
 Used for the application code and tests.
+
+### `CSV`
+
+### `Protobuf`
+
+`Protobuf` (`Protocol Buffers`) is a binary serialization format developed by `Google` for structured data exchange between applications. It is language-neutral and more compact and faster than `JSON` or `XML`.
+
+`Protobuf` uses `.proto` files to define data structures, which are compiled into language-specific classes for various programming languages. It is commonly used in microservices and API communications where efficiency and schema evolution are important.
+
+#### `Protobuf` docs
+
+- [Protocol Buffers documentation](https://protobuf.dev/)

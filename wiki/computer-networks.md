@@ -5,6 +5,7 @@
 - [What is a network](#what-is-a-network)
 - [Machine](#machine)
 - [Internet](#internet)
+- [Protocol](#protocol)
 - [IP address](#ip-address)
   - [IPv4](#ipv4)
   - [IPv6](#ipv6)
@@ -21,8 +22,14 @@
   - [Listen on a port](#listen-on-a-port)
 - [`Wi-Fi`](#wi-fi)
   - [`Wi-Fi` network](#wi-fi-network)
+- [CDN](#cdn)
 - [Reverse proxy](#reverse-proxy)
   - [Forward request](#forward-request)
+- [URL](#url)
+  - [Components of a URL](#components-of-a-url)
+  - [URL example](#url-example)
+- [Troubleshooting](#troubleshooting)
+  - [Service is running but a request fails](#service-is-running-but-a-request-fails)
 
 ## What is a network
 
@@ -40,19 +47,25 @@ The Internet is a global [network](#what-is-a-network) that connects millions of
 
 It uses standardized communication protocols (such as `TCP/IP`) to link billions of devices, enabling communication and access to information across the globe.
 
+## Protocol
+
+A protocol is a set of rules that define how data is transmitted and received over a [network](#what-is-a-network). Protocols govern communication between [machines](#machine).
+
+Example: [`HTTP`](./http.md#what-is-http) is the protocol used for communication between [web servers](./http.md#web-server) and [web clients](./http.md#web-client).
+
 ## IP address
 
 An IP address (Internet Protocol address) is a numerical label assigned to each device connected to a [network](#what-is-a-network).
 
 It identifies the device and its location in the network.
 
-Example: `10.93.24.98` ([IPv4](#ipv4)).
+Example: `10.93.24.1` ([IPv4](#ipv4)).
 
 ### IPv4
 
 `IPv4` (Internet Protocol version 4) uses 32-bit addresses, written as four decimal numbers separated by dots.
 
-Example: `10.93.24.98`, `127.0.0.1`.
+Example: `10.93.24.1`, `127.0.0.1`.
 
 It supports approximately 4.3 billion unique addresses.
 
@@ -71,7 +84,7 @@ A host is any [machine](#machine) that:
 - is connected to a [network](#what-is-a-network);
 - has an [IP address](#ip-address).
 
-Hosts can send and receive data over the [network](#what-is-a-network).
+Hosts can send and receive data over the network.
 
 Examples: computers, servers, [virtual machines](./vm.md#what-is-a-vm).
 
@@ -89,7 +102,7 @@ Examples: [`localhost`](#localhost), `my-server`, [`vm.innopolis.university`](./
 
 It resolves to the loopback [IP address](#ip-address) `127.0.0.1`.
 
-Connections to `localhost` never leave the host — they are handled entirely within the [operating system](./operating-system.md).
+Connections to `localhost` never leave the host — they are handled entirely within the [operating system](./operating-system.md#what-is-an-operating-system).
 
 #### `127.0.0.1`
 
@@ -107,7 +120,7 @@ This is commonly used to make a service accessible from outside the [machine](#m
 
 A remote [host](#host) is a host that is not the [local host](#localhost) — it is accessed over a [network](#what-is-a-network).
 
-Example: [your VM](./vm.md#your-vm) you connect to via [`SSH`](./ssh.md) is a remote host.
+Example: [your VM](./vm.md#your-vm) you connect to via [`SSH`](./ssh.md#what-is-ssh) is a remote host.
 
 ## Port
 
@@ -132,11 +145,11 @@ A **user port** (or **registered port**) is a [network port](#port) designated f
 
 ### Listen on a port
 
-When a [process](./operating-system.md#process) "listens on a port", it means the [process](./operating-system.md#process) has bound itself to a specific [network port number](#port-number) and is waiting for incoming network connections on that [port](#port).
+When a [process](./operating-system.md#process) "listens on a port", it means the process has bound itself to a specific [network port number](#port-number) and is waiting for incoming network connections on that [port](#port).
 
 The [operating system](./operating-system.md#what-is-an-operating-system) allocates the port to that process, and any incoming network traffic directed to that port will be handled by the listening process.
 
-This is how [services](./operating-system.md#service) like [web servers](./web-development.md), [`SSH` daemons](./ssh.md#ssh-daemon), or [databases](./database.md#what-is-a-database) accept connections from [clients](./web-development.md#web-client).
+This is how [services](./api.md#service) like [web servers](./http.md#web-server), [`SSH` daemons](./ssh.md#ssh-daemon), or [databases](./database.md#what-is-a-database) accept connections from [clients](./http.md#web-client).
 
 A port can only be listened on by one process at a time.
 
@@ -150,16 +163,61 @@ It uses radio waves to transmit data between devices and a wireless access point
 
 A `Wi-Fi` network is a [network](#what-is-a-network) that [machines](#machine) connect to using [`Wi-Fi`](#wi-fi).
 
-Each `Wi-Fi` network has a name (called `SSID`) that identifies it to nearby devices.
+Each `Wi-Fi` network has a name (called SSID) that identifies it to nearby devices.
 
 Example: `UniversityStudent`, `Home_Network`.
 
+## URL
+
+A URL (`Uniform Resource Locator`) is a reference or address used to identify and locate resources on the [Internet](#internet). It specifies the location of a resource on a [web server](./http.md#web-server) and the [protocol](#protocol) used to access it.
+
+URLs are used by browsers and other applications to retrieve resources like web pages, images, and API endpoints.
+
+### Components of a URL
+
+A typical URL consists of several components:
+
+- **Scheme/Protocol**: Specifies how to access the resource (e.g., `http`, `https`, `ftp`).
+- **[Host](#host)/Domain**: The server where the resource is located (e.g., `www.example.com`).
+- **[Port](#port)** (optional): The specific port number on the server (e.g., `:8080`).
+- **Path**: The location of the specific resource on the server (e.g., `/folder/page.html`).
+- **Query parameters** (optional): Additional data passed to the server (e.g., `?param1=value1&param2=value2`).
+- **Fragment** (optional): Points to a specific section within the resource (e.g., `#section1`).
+
+### URL example
+
+```text
+https://www.example.com:8080/search?q=cats&page=1#results
+```
+
+Where:
+
+- Scheme: `https`
+- Host: `www.example.com`
+- Port: `8080`
+- Path: `/search`
+- Query: `?q=cats&page=1`
+- Fragment: `#results`
+
+## CDN
+
+A `CDN` (`Content Delivery Network`) is a network of distributed servers that delivers static files (such as `HTML`, `CSS`, and `JavaScript`) to users from a location close to them. Serving files from a `CDN` reduces load on the origin server and improves response time.
+
 ## Reverse proxy
 
-A reverse proxy is a server that sits in front of a backend [service](./web-development.md#service) and forwards incoming client requests to it.
+A reverse proxy is a server that sits in front of a backend [service](./api.md#service) and forwards incoming client requests to it.
 
 <!-- TODO update -->
 
 ### Forward request
 
-<!-- TODO -->
+<!-- TODO add section content -->
+
+## Troubleshooting
+
+### Service is running but a request fails
+
+Verify both:
+
+1. The process is listening on the expected [port](#port).
+2. You are using the correct [host](#host) and [port number](#port-number) in your request.

@@ -28,7 +28,7 @@
             '';
             commandGroups = {
               "1-front-tools" = [
-                pkgs.nodejs_22
+                pkgs.nodejs_25
               ];
               "2-back-tools" = [
                 pkgs.uv
@@ -44,6 +44,7 @@
                       --exclude-path '.venv' \
                       --exclude-path '.direnv' \
                       --exclude-path 'node_modules' \
+                      --exclude-path 'tmp' \
                       --root-dir . \
                       --cache \
                       --format json \

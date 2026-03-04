@@ -54,6 +54,7 @@ Docs:
 - Link to other wiki sections whenever a concept appears for the first time in a section (see [Links and cross-references](./common.md#48-links-and-cross-references)).
 - Use `<h2>Table of contents</h2>` (HTML) so the ToC heading itself doesn't appear in the auto-generated ToC.
 - When an operation can be done multiple ways, list them as options: "Use any of the following methods:"
+- `wiki/dotenv-docker-secret.md` must stay in sync with `.env.docker.example` — variable names, default values, and grouping must match.
 - Vendor instructions that aren't good enough anywhere else (e.g., rewrite unclear official docs).
 - Provide fallback methods when one method may not work for all students.
 
@@ -79,7 +80,7 @@ Depending on the lab, consider creating wiki files for:
 - `package-manager.md` — Package managers, tools, and dependencies overview.
 - `ssh.md` — SSH setup and usage.
 - `python.md` — Python, virtual environments, package managers (`uv`).
-- `testing.md` — Testing concepts, `pytest`, assertions.
+- `quality-assurance.md` — Quality assurance concepts, `pytest`, assertions.
 - `http.md` — HTTP protocol, requests, responses, and status codes.
 - `http-auth.md` — HTTP authentication via API keys and authorization.
 - `web-development.md` — HTTP, endpoints, status codes, URLs, JSON, APIs.
@@ -165,6 +166,7 @@ This provides: what it is, where to find it, official docs, and how to use it.
 **Conditional (include when applicable):**
 
 - [ ] `.env.example` files are provided; `.env.secret` files are gitignored (if the lab uses environment variables).
+- [ ] `wiki/dotenv-docker-secret.md` is in sync with `.env.docker.example` — variable names, defaults, and grouping match (if the lab has a dotenv wiki page).
 - [ ] `.dockerignore` excludes tests, docs, `.git/`, build caches, markdown files (if the lab uses Docker).
 - [ ] At least one test intentionally fails for the debugging task (if the lab has a testing/debugging task).
 - [ ] Task runner commands are documented in the config file (if the lab uses a task runner).
