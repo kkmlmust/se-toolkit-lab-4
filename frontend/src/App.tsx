@@ -18,6 +18,7 @@ function App() {
   const [items, setItems] = useState<Item[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [selectedType, setSelectedType] = useState<string>('All')
 
   useEffect(() => {
     if (!token) return
@@ -74,6 +75,12 @@ function App() {
     )
   }
 
+  const uniqueTypes = Array.from(new Set(items.map((item) => item.type))).sort()
+  const filteredItems =
+    selectedType === 'All'
+      ? items
+      : items.filter((item) => item.type === selectedType)
+
   return (
     <div>
       <header className="app-header">
@@ -87,26 +94,40 @@ function App() {
       {error && <p>Error: {error}</p>}
 
       {!loading && !error && (
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Type</th>
-              <th>Title</th>
-              <th>Created at</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((item) => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.type}</td>
-                <td>{item.title}</td>
-                <td>{item.created_at}</td>
-              </tr>
+        <>
+          <select
+            value={selectedType}
+            onChange={(e) => setSelectedType(e.target.value)}
+          >
+            <option value="All">All</option>
+            {uniqueTypes.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
             ))}
-          </tbody>
-        </table>
+          </select>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Created at</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredItems.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>{item.type}</td>
+                  <td>{item.title}</td>
+                  <td>{item.created_at}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
       )}
     </div>
   )
